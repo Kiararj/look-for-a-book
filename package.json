@@ -10,9 +10,9 @@
     "build": "cd client && npm run build"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Kiara Johnson",
+  "license": "MIT",
   "devDependencies": {
-    "concurrently": "^5.1.0"
+    "concurrently": "^8.2.0"
   }
 }
