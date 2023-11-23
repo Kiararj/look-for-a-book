@@ -16,19 +16,21 @@ const resolvers = {
     },
 
     Mutation: {
-        addUser: async (parent, args) => {
-            const user = await User.create(args);
+        addUser: async (parent, { username, email, password }) => {
+            const user = await User.create({ username, email, password });
             const token = signToken(user);
             return { token, user };
         },
 
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });
+
             if(!user){
                 throw new AuthenticationError('Incorrect email or password');
             };
 
             const correctPassword = await user.isCorrectPassword(password);
+
             if(!correctPassword) {
                 throw new AuthenticationError('Incorrect email or password');
             };
@@ -52,10 +54,9 @@ const resolvers = {
             if (context.user) {
               const updatedUser = await User.findOneAndUpdate(
                     { _id: context.user._id },
-                    { $pull: { savedBooks: { bookId: bookId } } },
+                    { $pull:  { bookId: bookId } },
                     { new: true }
               );
-              return updatedUser;
             }
             throw new AuthenticationError('You need to be logged in!');
           },
