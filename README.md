@@ -32,7 +32,7 @@ If you do not want to install to your local machine, check out the deployed appl
 
 ## Credits
 
-Stater code [here](https://github.com/coding-boot-camp/cautious-meme).
+Stater code [here](https://github.com/coding-boot-camp/solid-broccoli).
 
 Badges used can found [here](https://github.com/Ileriayo/markdown-badges)
 
